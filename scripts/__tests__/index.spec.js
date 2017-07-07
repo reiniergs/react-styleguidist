@@ -1,9 +1,9 @@
+import last from 'lodash/last';
+import styleguidist from '../index';
+
 jest.mock('../build');
 jest.mock('../server');
 jest.mock('../utils/getWebpackVersion');
-
-import last from 'lodash/last';
-import styleguidist from '../index';
 
 const getDefaultWebpackConfig = () => styleguidist().makeWebpackConfig();
 
@@ -102,12 +102,12 @@ describe('makeWebpackConfig', () => {
 	});
 
 	it('should merge Create React App Webpack config', () => {
-		process.chdir('test/apps/cra');
+		process.chdir('test/apps/basic');
 		const api = styleguidist();
 		const result = api.makeWebpackConfig();
 
 		expect(result).toBeTruthy();
-		expect(result.cra).toBeTruthy();
+		expect(result.module).toBeTruthy();
 	});
 
 	it('should add json-loader', () => {

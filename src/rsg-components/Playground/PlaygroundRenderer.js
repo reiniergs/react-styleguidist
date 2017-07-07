@@ -23,14 +23,25 @@ const styles = ({ space, color, borderRadius }) => ({
 export function PlaygroundRenderer({ classes, name, preview, tabButtons, tabBody, toolbar }) {
 	return (
 		<div className={classes.root}>
-			<div className={classes.preview} data-preview={name}>{preview}</div>
+			<div className={classes.preview} data-preview={name}>
+				{preview}
+			</div>
 			{tabButtons &&
 				toolbar &&
 				<div className={classes.controls}>
-					{tabButtons && <div className={classes.tabs}>{tabButtons}</div>}
-					{toolbar && <div className={classes.toolbar}>{toolbar}</div>}
+					{tabButtons &&
+						<div className={classes.tabs}>
+							{tabButtons}
+						</div>}
+					{toolbar &&
+						<div className={classes.toolbar}>
+							{toolbar}
+						</div>}
 				</div>}
-			{tabBody && <div className={classes.tab}>{tabBody}</div>}
+			{tabBody &&
+				<div className={classes.tab}>
+					{tabBody}
+				</div>}
 		</div>
 	);
 }
