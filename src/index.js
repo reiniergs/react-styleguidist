@@ -17,11 +17,19 @@ import {
 	slugger,
 } from './utils/utils';
 import './styles';
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('UA-101225731-1');
 
 // Examples code revision to rerender only code examples (not the whole page) when code changes
 let codeRevision = 0;
 
+function fireTracking() {
+	ReactGA.pageview(window.location.hash);
+}
+
 function renderStyleguide() {
+	fireTracking();
 	// eslint-disable-next-line import/no-unresolved
 	const styleguide = require('!!../loaders/styleguide-loader!./index.js');
 
